@@ -1,0 +1,25 @@
+{
+  "name": "nextorigin-express-skeleton",
+  "version": "0.8.0",
+  "description": "Express app skeleton for nextorigin",
+  "main": "lib/skeleton.js",
+  "scripts": {
+    "build": "./node_modules/iced-coffee-script/bin/coffee --bare --map --runtime node -o lib/ -c src/*"
+  },
+  "author": "doublerebel",
+  "license": "All Rights Reserved",
+  "dependencies": {
+    "body-parser": "~1.15.0",
+    "compression": "^1.6.1",
+    "express": "~4.13.1",
+    "express-rendertype": "^1.0.1",
+    "flannel": "^0.9.4",
+    "iced-runtime": "^1.0.3",
+    "jade": "~1.11.0",
+    "serve-favicon": "~2.3.0",
+    "source-map-support": "^0.4.0"
+  },
+  "devDependencies": {
+    "iced-coffee-script": "^108.0.9"
+  }
+}
