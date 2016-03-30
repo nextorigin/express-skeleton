@@ -14,9 +14,10 @@ class Skeleton
   port: 3000
 
   constructor: (@options) ->
-    Flannel.init Console: level: "debug" unless Flannel.winston
-    Flannel.shirt this
-    @debug "initializing"
+    unless @Flannel?.winston
+      @Flannel = Flannel.init Console: level: "debug"
+      @Flannel.shirt this
+      @debug "initializing"
 
     @address = @options.address
     @port    = process.env.PORT or @port
@@ -27,7 +28,8 @@ class Skeleton
     @app.set "view engine", "jade"
 
     @app.use favicon path.join __dirname, "public", "favicon.ico" if @options.favicon
-    @app.use Flannel.morgan " info"
+
+    @app.use @Flannel.morgan " info"
     @app.use compression()
     @app.use bodyParser.json()
     @app.use bodyParser.urlencoded extended: false
