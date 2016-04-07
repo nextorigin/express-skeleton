@@ -4,7 +4,7 @@
   "description": "Express app skeleton for nextorigin",
   "main": "lib/skeleton.js",
   "scripts": {
-    "build": "./node_modules/iced-coffee-script/bin/coffee --bare --map --runtime node -o lib/ -c src/*"
+    "build": "./node_modules/iced-coffee-script/bin/coffee --bare --map --runtime node -o lib/ -c src/"
   },
   "author": "doublerebel",
   "license": "All Rights Reserved",
