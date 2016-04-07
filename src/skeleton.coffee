@@ -41,10 +41,10 @@ class Skeleton
   listen: (port = @port) =>
     @server = http.createServer @app
     @server.listen port
-    @server.on "error", @error
+    @server.on "error", @handleListeningError
     @server.on "listening", @listening
 
-  error: (error) =>
+  handleListeningError: (error) =>
     throw error if error.syscall isnt "listen"
 
     bind = if typeof @port is "string" then "Pipe #{@port}" else "Port #{@port}"
