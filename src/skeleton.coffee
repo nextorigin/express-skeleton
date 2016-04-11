@@ -7,6 +7,7 @@ Flannel       = require "flannel"
 compression   = require "compression"
 bodyParser    = require "body-parser"
 render        = require "express-rendertype"
+GracefulExit  = require "express-graceful-exit"
 
 
 class Skeleton
@@ -28,6 +29,7 @@ class Skeleton
     @app.set "view engine", "jade"
     @app.use express.static @options.static if @options.static
     @app.use favicon path.join __dirname, "public", "favicon.ico" if @options.favicon
+    @app.use GracefulExit.middleware @app
 
     @app.use @Flannel.morgan " info"
     @app.use compression()
@@ -37,6 +39,7 @@ class Skeleton
 
     @bindRoutes()
     @handleRouteErrors()
+    process.on "SIGTERM", @gracefulShutdown
 
   listen: (port = @port) =>
     @server = http.createServer @app
@@ -66,6 +69,13 @@ class Skeleton
     @app.use render.Errors.Error404
     @app.use render.FancyErrors.auto "text", null, @log if (@app.get "env") is "development"
     @app.use render.Errors.auto "text", null, @log
+
+  close: (callback) =>
+    @server.close callback
+
+  gracefulShutdown: (message) =>
+    GracefulExit.gracefulExitHandler @app, this, log: true, logger: @Flannel.shirt().info.bind this
+
 
 
 module.exports = Skeleton
