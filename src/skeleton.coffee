@@ -41,6 +41,7 @@ class Skeleton
     @bindRoutes()
     @handleRouteErrors()
     process.on "SIGTERM", @gracefulShutdown
+    process.on "uncaughtException", @errThenGracefulShutdown
 
   listen: (port = @port) =>
     @server = http.createServer @app
@@ -73,6 +74,10 @@ class Skeleton
 
   close: (callback) =>
     @server.close callback
+
+  errThenGracefulShutdown: (err) =>
+    @err err.stack
+    @gracefulShutdown()
 
   gracefulShutdown: =>
     GracefulExit.gracefulExitHandler @app, this,
