@@ -13,6 +13,7 @@ GracefulExit  = require "express-graceful-exit"
 class Skeleton
   logPrefix: "(Skeleton)"
   port: 3000
+  shutdownTimeout: 2*60 + 10
 
   constructor: (@options) ->
     unless @Flannel?.winston
@@ -73,8 +74,11 @@ class Skeleton
   close: (callback) =>
     @server.close callback
 
-  gracefulShutdown: (message) =>
-    GracefulExit.gracefulExitHandler @app, this, log: true, logger: @Flannel.shirt().info.bind this
+  gracefulShutdown: =>
+    GracefulExit.gracefulExitHandler @app, this,
+      log: true,
+      logger: (@Flannel.shirt().info.bind this),
+      suicideTimeout: @shutdownTimeout * 1000
 
 
 
