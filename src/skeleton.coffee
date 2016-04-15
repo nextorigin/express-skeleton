@@ -85,6 +85,8 @@ class Skeleton
       logger: (@Flannel.shirt().info.bind this),
       suicideTimeout: @shutdownTimeout * 1000
 
+  delay: (timeout, fn) -> setTimeout (fn.bind this), timeout
+
 
 
 module.exports = Skeleton
