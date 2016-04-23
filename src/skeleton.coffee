@@ -27,15 +27,15 @@ class Skeleton
     # view engine setup
     @app.set "views", @options.views if @options.views
     @app.set "view engine", "jade"
-    @app.use express.static @options.static if @options.static
+    @app.use express.static (@options.static.root or @options.static), (@options.static.options or {}) if @options.static
     @app.use favicon path.join __dirname, "public", "favicon.ico" if @options.favicon
     @app.use GracefulExit.middleware @app
 
     @app.use @Flannel.morgan " info"
     @app.use compression()
     @app.use bodyParser.json()
-    @app.use bodyParser.urlencoded extended: false
-    @app.use render.auto "text"
+    @app.use bodyParser.urlencoded extended: !!@options.urlencoded_extended
+    @app.use @options.render or render.auto "text"
 
     @bindRoutes()
     @handleRouteErrors()
