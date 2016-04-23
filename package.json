@@ -7,7 +7,7 @@
     "build": "./node_modules/iced-coffee-script/bin/coffee --bare --map --runtime node -o lib/ -c src/"
   },
   "author": "doublerebel",
-  "license": "All Rights Reserved",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "~1.15.0",
     "compression": "^1.6.1",
