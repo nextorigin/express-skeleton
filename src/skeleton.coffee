@@ -1,4 +1,3 @@
-require "source-map-support/register"
 http          = require "http"
 path          = require "path"
 express       = require "express"
