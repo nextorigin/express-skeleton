@@ -1,6 +1,6 @@
 {
   "name": "nextorigin-express-skeleton",
-  "version": "0.10.5",
+  "version": "0.10.6",
   "description": "Express app skeleton for nextorigin",
   "main": "lib/skeleton.js",
   "scripts": {
