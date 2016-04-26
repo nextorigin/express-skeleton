@@ -28,7 +28,7 @@ class Skeleton
     @app.set "views", @options.views if @options.views
     @app.set "view engine", "jade"
     @app.use express.static (@options.static.root or @options.static), (@options.static.options or {}) if @options.static
-    @app.use favicon path.join __dirname, "public", "favicon.ico" if @options.favicon
+    @app.use favicon @options.favicon if @options.favicon
     @app.use GracefulExit.middleware @app
 
     @app.use @Flannel.morgan " info"
