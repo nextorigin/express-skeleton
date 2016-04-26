@@ -1,11 +1,24 @@
 {
   "name": "nextorigin-express-skeleton",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "description": "Express app skeleton for nextorigin",
   "main": "lib/skeleton.js",
   "scripts": {
     "build": "./node_modules/iced-coffee-script/bin/coffee --bare --map --runtime node -o lib/ -c src/"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nextorigin/express-skeleton"
+  },
+  "keywords": [
+    "express",
+    "skeleton",
+    "iced",
+    "coffeescript",
+    "coffee-script",
+    "error",
+    "graceful"
+  ],
   "author": "doublerebel",
   "license": "MIT",
   "dependencies": {
