@@ -26,7 +26,7 @@ class Skeleton
 
     # view engine setup
     @app.set "views", @options.views if @options.views
-    @app.set "view engine", "jade"
+    @app.set "view engine", "pug"
     @app.use express.static (@options.static.root or @options.static), (@options.static.options or {}) if @options.static
     @app.use favicon @options.favicon if @options.favicon
     @app.use GracefulExit.middleware @app

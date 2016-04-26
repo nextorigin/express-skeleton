@@ -29,7 +29,7 @@
     "express-rendertype": "^1.1.0",
     "flannel": "^0.9.5",
     "iced-runtime": "^1.0.3",
-    "jade": "~1.11.0",
+    "pug": "^2.0.0-alpha6",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
