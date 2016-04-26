@@ -21,7 +21,7 @@ class Skeleton
       @debug "initializing"
 
     @address = @options.address
-    @port    = process.env.PORT or @port
+    @port    = process.env.PORT or @options.port or @port
     @app     = express()
 
     # view engine setup
