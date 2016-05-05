@@ -1,6 +1,6 @@
 {
   "name": "nextorigin-express-skeleton",
-  "version": "0.11.0",
+  "version": "0.11.0-pugfix",
   "description": "Express app skeleton for nextorigin",
   "main": "lib/skeleton.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "express-rendertype": "^1.1.0",
     "flannel": "^0.9.5",
     "iced-runtime": "^1.0.3",
-    "pug": "^2.0.0-alpha6",
+    "pug": "doublerebel/jade#fix/relative-include-extend",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
