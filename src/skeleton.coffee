@@ -22,7 +22,7 @@ class Skeleton
 
     @address = @options.address
     @port    = process.env.PORT or @options.port or @port
-    @app     = express()
+    @app   or= express()
 
     @app.use @Flannel.morgan " info"
 
