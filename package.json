@@ -1,6 +1,6 @@
 {
   "name": "nextorigin-express-skeleton",
-  "version": "0.11.0-pugfix",
+  "version": "0.12.0-pugfix",
   "description": "Express app skeleton for nextorigin",
   "main": "lib/skeleton.js",
   "scripts": {
