@@ -26,22 +26,25 @@ class Skeleton
 
     @app.use @Flannel.morgan " info"
 
-    # view engine setup
-    @app.set "views", @options.views if @options.views
-    @app.set "view engine", "pug"
-    @app.use express.static (@options.static.root or @options.static), (@options.static.options or {}) if @options.static
-    @app.use favicon @options.favicon if @options.favicon
-    @app.use GracefulExit.middleware @app
-
-    @app.use compression()
-    @app.use bodyParser.json()
-    @app.use bodyParser.urlencoded extended: !!@options.urlencoded_extended
-    @app.use @options.render or render.auto "text"
-
+    @loadMiddleware()
     @bindRoutes()
     @handleRouteErrors()
     process.on "SIGTERM", @gracefulShutdown
     process.on "uncaughtException", @errThenGracefulShutdown
+
+  loadMiddleware: ->
+    # view engine setup
+    @app.set "views", @options.views if @options.views
+    @app.set "view engine", "pug"
+    @app.use GracefulExit.middleware @app
+
+    @app.use compression()
+    @app.use express.static (@options.static.root or @options.static), (@options.static.options or {}) if @options.static
+    @app.use favicon @options.favicon if @options.favicon
+
+    @app.use bodyParser.json()
+    @app.use bodyParser.urlencoded extended: !!@options.urlencoded_extended
+    @app.use @options.render or render.auto "text"
 
   listen: (port = @port) =>
     @server = http.createServer @app
