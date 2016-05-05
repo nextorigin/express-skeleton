@@ -24,6 +24,8 @@ class Skeleton
     @port    = process.env.PORT or @options.port or @port
     @app     = express()
 
+    @app.use @Flannel.morgan " info"
+
     # view engine setup
     @app.set "views", @options.views if @options.views
     @app.set "view engine", "pug"
@@ -31,7 +33,6 @@ class Skeleton
     @app.use favicon @options.favicon if @options.favicon
     @app.use GracefulExit.middleware @app
 
-    @app.use @Flannel.morgan " info"
     @app.use compression()
     @app.use bodyParser.json()
     @app.use bodyParser.urlencoded extended: !!@options.urlencoded_extended
