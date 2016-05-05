@@ -46,6 +46,16 @@ class Skeleton
     @app.use bodyParser.urlencoded extended: !!@options.urlencoded_extended
     @app.use @options.render or render.auto "text"
 
+  redirectToHttps: (req, res, next) ->
+    proto = req.headers["x-forwarded-proto"]
+    unless proto
+      forwarded = req.headers["forwarded"]
+      forwarded = /proto=(http[s]?)/.exec forwarded
+      proto     = forwarded and forwarded[1]
+      return res.redirect "https://#{req.hostname}#{req.url}" if proto and proto isnt "https"
+
+    next()
+
   listen: (port = @port) =>
     @server = http.createServer @app
     @server.listen port
