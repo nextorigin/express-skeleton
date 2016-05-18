@@ -47,19 +47,6 @@ class Skeleton
     @app.use @options.render or render.auto "text"
 
   redirectToHttps: (req, res, next) ->
-    headers = [
-      "x-forwarded-for"
-      "x-forwarded-proto"
-      "forwarded"
-    ]
-    for name in headers
-      # this is a new SSL request
-      if header = req.headers[name]
-        req.connection[name] = header
-      # this is a previous SSL request
-      else if header = req.connection[name]
-        req.headers[name] = header
-
     proto = req.headers["x-forwarded-proto"]
     unless proto
       forwarded = req.headers["forwarded"]
