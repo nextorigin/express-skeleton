@@ -22,14 +22,14 @@
   "author": "doublerebel",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "~1.15.0",
-    "compression": "^1.6.1",
-    "express": "~4.13.1",
-    "express-graceful-exit": "^0.1.0",
-    "express-rendertype": "^1.1.0",
+    "body-parser": "~1.15.2",
+    "compression": "^1.6.2",
+    "express": "~4.14.0",
+    "express-graceful-exit": "^0.2.1",
+    "express-rendertype": "^1.1.1",
     "flannel": "^0.9.5",
     "iced-runtime": "^1.0.3",
-    "pug": "2.0.0-alpha7",
+    "pug": "2.0.0-beta4",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
