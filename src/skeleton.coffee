@@ -23,6 +23,7 @@ class Skeleton
     @address = @options.address
     @port    = process.env.PORT or @options.port or @port
     @app   or= express()
+    @server  = http.createServer @app
 
     @app.use @Flannel.morgan " info"
 
@@ -57,7 +58,6 @@ class Skeleton
     next()
 
   listen: (port = @port) =>
-    @server = http.createServer @app
     @server.listen port
     @server.on "error", @handleListeningError
     @server.on "listening", @listening
