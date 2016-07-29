@@ -58,9 +58,9 @@ class Skeleton
     next()
 
   listen: (port = @port) =>
-    @server.listen port
     @server.on "error", @handleListeningError
     @server.on "listening", @listening
+    @server.listen port
 
   handleListeningError: (error) =>
     throw error if error.syscall isnt "listen"
