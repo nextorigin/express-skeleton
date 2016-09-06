@@ -21,7 +21,7 @@ MIT
   [dependency]: https://img.shields.io/david/nextorigin/express-skeleton.svg?style=flat-square
   [david]: https://david-dm.org/nextorigin/express-skeleton
   [dev-dependency]: https://img.shields.io/david/dev/nextorigin/express-skeleton.svg?style=flat-square
-  [david-dev]: https://david-dm.org/nextorigin/express-skeleton#info=devDependencies
+  [david-dev]: https://david-dm.org/nextorigin/express-skeleton?type=dev
   [downloads]: https://img.shields.io/npm/dm/nextorigin-express-skeleton.svg?style=flat-square
   [npm]: https://www.npmjs.org/package/nextorigin-express-skeleton
   [npm-stats]: https://nodei.co/npm/nextorigin-express-skeleton.png?downloads=true&downloadRank=true&stars=true
