@@ -31,7 +31,7 @@
     "express": "~4.14.0",
     "express-graceful-exit": "^0.3.3",
     "express-rendertype": "^1.2.0",
-    "flannel": "^0.9.5",
+    "flannel": "^0.10.0",
     "iced-runtime": "^1.0.3",
     "pug": "2.0.0-beta4",
     "serve-favicon": "~2.3.0"
