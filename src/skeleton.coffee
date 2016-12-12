@@ -48,12 +48,14 @@ class Skeleton
     @app.use @options.render or render.auto "text"
 
   redirectToHttps: (req, res, next) ->
-    proto = req.headers["x-forwarded-proto"]
-    unless proto
+    unless proto = req.headers["x-forwarded-proto"]
       forwarded = req.headers["forwarded"]
       forwarded = /proto=(http[s]?)/.exec forwarded
       proto     = forwarded and forwarded[1]
-      return res.redirect "https://#{req.hostname}#{req.url}" if proto and proto isnt "https"
+
+    if proto and proto isnt "https"
+      dest = "https://#{req.hostname}#{req.url}"
+      return res.redirect dest
 
     next()
 
