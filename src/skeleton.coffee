@@ -59,6 +59,9 @@ class Skeleton
 
     next()
 
+  health: (req, res, next) ->
+    res.send "OK"
+
   listen: (port = @port) =>
     @server.on "error", @handleListeningError
     @server.on "listening", @listening
