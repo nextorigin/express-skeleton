@@ -26,7 +26,7 @@
   "author": "doublerebel",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "~1.15.2",
+    "body-parser": "~1.16.0",
     "compression": "^1.6.2",
     "express": "~4.14.0",
     "express-graceful-exit": "^0.3.3",
