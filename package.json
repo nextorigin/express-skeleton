@@ -34,7 +34,7 @@
     "flannel": "^0.10.0",
     "iced-runtime": "^1.0.3",
     "pug": "2.0.0-beta4",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.4.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
